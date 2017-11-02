@@ -108,6 +108,8 @@ public class GuideActivity extends AppCompatActivity {
                 editor.apply();
 
                 startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+                //结束向导页
+                finish();
             }
         });
     }
