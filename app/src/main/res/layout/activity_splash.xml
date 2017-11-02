@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/root_splash"
-    android:background="@mipmap/splash_background"
+    android:background="@drawable/splash_background"
     tools:context="top.ttxxly.news.SplashActivity">
 
     <TextView

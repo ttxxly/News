@@ -1,6 +1,7 @@
 package top.ttxxly.news;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Window;
@@ -71,8 +72,21 @@ public class SplashActivity extends AppCompatActivity {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                //动画结束
-                startActivity(new Intent(getApplicationContext(), GuideActivity.class));
+                //动画结束, 判断是否展示过引导页
+                //1、获取Preferences
+                SharedPreferences settings = getSharedPreferences("settings", 0);
+                //2、取出数据, 如果
+                boolean isGuideShow = settings.getBoolean("isGuideShow", false);
+
+                if (!isGuideShow) {
+                    //跳转到 引导页
+                    startActivity(new Intent(getApplicationContext(), GuideActivity.class));
+                }else {
+                    //跳转到主页面
+                    startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+                }
+                //结束闪屏页
+                finish();
             }
 
             @Override
